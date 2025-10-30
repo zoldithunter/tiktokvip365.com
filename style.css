@@ -4,9 +4,14 @@
 }
 
 body {
-  background: #f9f9fb;
-  color: #111;
-  margin: 0;
+  background: radial-gradient(circle at top left, #fefefe, #f3f3f8, #fefefe);
+}
+
+.card, .price-box, footer {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
 }
 
 /* HERO BANNER */
@@ -328,4 +333,36 @@ body {
   .footer-content {
     align-items: center;
   }
+}
+
+.bank-account {
+  color: #d63384; /* Màu nổi bật nhẹ (hồng tím kiểu TikTok) */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.bank-account:hover {
+  color: #ff0050; /* Hover đậm hơn tí */
+}
+
+/* Popup thông báo copy */
+.copy-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.copy-toast.show {
+  opacity: 1;
 }

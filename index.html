@@ -55,8 +55,8 @@
         </div>
         <div class="footer-content">
           <h3>Thông tin chuyển khoản</h3>
-          <p><strong class="highlight">VPBank:</strong> <span class="highlight">0026S210971</span></p>
-          <p><strong>Vietcombank:</strong> 9419991996</p>
+          <p><strong class="highlight">VPBank:</strong> <span class="bank-account" data-account="0026S210971">0026S210971</span></p>
+          <p><strong>Vietcombank:</strong> <span class="bank-account" data-account="9419991996">9419991996</span></p>
           <p>Chủ TK: <strong>Vũ Duy Linh</strong></p>
           <p>Mã QR: <em>(quét để chuyển nhanh)</em></p>
         </div>
@@ -65,5 +65,27 @@
   </footer>
 
   <script src="app.js"></script>
+  <script>
+    document.querySelectorAll(".bank-account").forEach(el => {
+      el.addEventListener("click", () => {
+        const account = el.dataset.account;
+        navigator.clipboard.writeText(account).then(() => {
+          showToast(`Đã sao chép: ${account}`);
+        });
+      });
+    });
+
+    function showToast(msg) {
+      let toast = document.querySelector(".copy-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.className = "copy-toast";
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+  </script>
 </body>
 </html>
