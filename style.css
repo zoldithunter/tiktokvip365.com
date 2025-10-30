@@ -366,3 +366,50 @@ body {
 .copy-toast.show {
   opacity: 1;
 }
+
+/* ===== 📱 Responsive layout cho gói coin ===== */
+@media (max-width: 768px) {
+  .package-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 ô mỗi hàng */
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .package-card {
+    padding: 16px 8px;
+    border-radius: 14px;
+  }
+
+  .package-card h3 {
+    font-size: 14px;
+    margin: 8px 0 4px;
+  }
+
+  .package-card p {
+    font-size: 13px;
+  }
+
+  .package-card svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Màn rất nhỏ (<400px): thu hẹp thêm chút */
+@media (max-width: 420px) {
+  .package-list {
+    gap: 10px;
+  }
+
+  .package-card {
+    padding: 12px 6px;
+  }
+
+  .package-card h3 {
+    font-size: 13px;
+  }
+
+  .package-card p {
+    font-size: 12px;
+  }
+}
